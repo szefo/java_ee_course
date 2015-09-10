@@ -6,15 +6,38 @@
     <link rel="stylesheet" href="resources/css/theme.css"/>
 </head>
 <body>
-<h2>Welcome to World Adventures Airlines!</h2>
+<!-- <h2>Welcome to World Adventures Airlines!</h2> !-->
 
 <div class="container">
     <div class="title">Add a passenger</div>
 
-    <legend>Passenger detail</legend>
+    <%
+        if (request.getAttribute("errors") != null) {
+    %>
+    <fieldset id="error_fieldset">
+        <legend align="center">Errors</legend>
+        <ul>
+            <% if (request.getAttribute("firstName_error") != null) {%>
+            <li class="error">First name error</li>
+            <%}%>
+
+            <% if (request.getAttribute("lastName_error") != null) {%>
+            <li class="error">Last name error</li>
+            <%}%>
+
+            <% if (request.getAttribute("date_format_error") != null) {%>
+            <li class="error">Data of birth invalid</li>
+            <%}%>
+        </ul>
+    </fieldset>
+    <%
+        }
+    %>
+
     <form action="AddPassenger" method="post">
         <fieldset>
-
+            <legend align="center">Passenger detail</legend>
+            </br>
             <div class="inputField">
                 <label for="first_name" class="inputLabel">First name: </label>
                 <input id="first_name" name="first_name" type="text"/>
@@ -37,7 +60,6 @@
                     <option value="Female">Female</option>
                 </select>
             </div>
-            </br>
         </fieldset>
         <div class="inputField" id="submitField">
             <input id="submitBtn" type="submit" value="Add new passenger">

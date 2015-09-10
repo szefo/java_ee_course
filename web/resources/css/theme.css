@@ -104,12 +104,7 @@ fieldset {
 
 legend {
     font-size: 20px;
-    top: 20px;
-    left: 18px;
-    font-weight: bold;
-    float: left;
-    margin-bottom: .5em;
-    width: 100%;
+    text-align: center;
 }
 
 
