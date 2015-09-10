@@ -21,6 +21,9 @@ import java.util.regex.Pattern;
 public class AddPassenger extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setAttribute("first_name", "");
+        req.setAttribute("last_name", "");
+        req.setAttribute("date_birth", "");
         RequestDispatcher view = req.getRequestDispatcher("WEB-INF/views/add_passenger.jsp");
         view.forward(req, resp);
     }
@@ -36,18 +39,20 @@ public class AddPassenger extends HttpServlet {
         if (firstName.length() == 0) {
             req.setAttribute("errors", true);
             req.setAttribute("firstName_error", true);
-            req.getAttribute("");
+            req.setAttribute("first_name", "");
         } else {
             passenger.setFirstName(firstName);
+            req.setAttribute("first_name", firstName);
         }
 
         String lastName = req.getParameter("last_name");
         if (lastName.length() == 0) {
             req.setAttribute("errors", true);
             req.setAttribute("lastName_error", true);
-            req.getAttribute("");
+            req.setAttribute("last_name", "");
         } else {
             passenger.setLastName(lastName);
+            req.setAttribute("last_name", lastName);
         }
 
         String dateBirth = req.getParameter("date_birth");
@@ -70,10 +75,15 @@ public class AddPassenger extends HttpServlet {
             Date date = cal.getTime();
 
             passenger.setDateBirth(date);
+            req.setAttribute("date_birth", dateBirth);
         } else {
             System.out.println("Invalid day of birth");
             req.setAttribute("errors", true);
             req.setAttribute("date_format_error", true);
+            if (dateBirth.length() != 0)
+                req.setAttribute("date_birth", dateBirth);
+            else
+                req.setAttribute("date_birth", "");
         }
 
         String gender = req.getParameter("gender");
@@ -93,4 +103,5 @@ public class AddPassenger extends HttpServlet {
             }
         }
     }
+
 }

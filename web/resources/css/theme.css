@@ -107,8 +107,9 @@ legend {
     text-align: center;
 }
 
-
-
+.error {
+    color: Red;
+}
 
 
 

@@ -40,17 +40,17 @@
             </br>
             <div class="inputField">
                 <label for="first_name" class="inputLabel">First name: </label>
-                <input id="first_name" name="first_name" type="text"/>
+                <input id="first_name" name="first_name" value="<%= request.getAttribute("first_name")%>" type="text"/>
             </div>
             </br>
             <div class="inputField">
                 <label for="last_name" class="inputLabel">Last name: </label>
-                <input id="last_name" name="last_name" type="text"/>
+                <input id="last_name" name="last_name" value="<%= request.getAttribute("last_name")%>" type="text"/>
             </div>
             </br>
             <div class="inputField">
                 <label for="date_birth" class="inputLabel">Date of birth: </label>
-                <input id="date_birth" name="date_birth" type="text"/>
+                <input id="date_birth" name="date_birth" value="<%= request.getAttribute("date_birth")%>" type="text"/>
             </div>
             </br>
             <div class="inputField">

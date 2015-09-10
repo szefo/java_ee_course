@@ -22,7 +22,7 @@ public class MainPage extends HttpServlet {
         ServletContext servletContext = this.getServletContext();
         ArrayList<Passenger> passengerList = (ArrayList<Passenger>) servletContext.getAttribute("passengers");
 
-        out.println("Passenger has been added to list. NUmber of passengers: " + passengerList.size());
+        out.println("Passenger has been added to list. Number of passengers: " + passengerList.size());
     }
 
     @Override
